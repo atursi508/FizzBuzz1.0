@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'stringio'
 require_relative 'fizzbuzz'
 
 class TestFizzBuzz < Minitest::Test
