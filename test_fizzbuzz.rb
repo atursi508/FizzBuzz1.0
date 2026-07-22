@@ -8,15 +8,37 @@ class TestFizzBuzz < Minitest::Test
       fizzbuzz.print_numbers
     end
     
-    # Check that output contains all numbers from 1 to 100
+    # Check that output contains exactly 100 lines
     lines = output.strip.split("\n")
     assert_equal 100, lines.length, "Should print exactly 100 numbers"
-    
-    # Verify the sequence is correct
-    lines.each_with_index do |line, index|
-      expected = index + 1
-      assert_equal expected.to_s, line, "Line #{index + 1} should contain #{expected}"
+  end
+
+  def test_fizzbuzz_outputs_correct_values
+    output = capture_output do
+      fizzbuzz = FizzBuzz.new
+      fizzbuzz.print_numbers
     end
+    
+    lines = output.strip.split("\n")
+    
+    # Test some key cases
+    assert_equal "1", lines[0], "First number should be 1"
+    assert_equal "2", lines[1], "Second number should be 2"
+    assert_equal "Fizz", lines[2], "3rd number should be Fizz"
+    assert_equal "4", lines[3], "4th number should be 4"
+    assert_equal "Buzz", lines[4], "5th number should be Buzz"
+    assert_equal "Fizz", lines[5], "6th number should be Fizz"
+    assert_equal "FizzBuzz", lines[14], "15th number should be FizzBuzz"
+  end
+
+  def test_100_is_buzz
+    output = capture_output do
+      fizzbuzz = FizzBuzz.new
+      fizzbuzz.print_numbers
+    end
+    
+    lines = output.strip.split("\n")
+    assert_equal "Buzz", lines[99], "100th number should be Buzz"
   end
 
   private
