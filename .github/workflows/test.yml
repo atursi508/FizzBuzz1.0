@@ -28,3 +28,7 @@ jobs:
     
     - name: Run tests
       run: ruby test_fizzbuzz.rb
+
+    - name: Display FizzBuzz Output
+      run: |
+        ruby -e "require_relative 'fizzbuzz'; FizzBuzz.new.print_numbers"
