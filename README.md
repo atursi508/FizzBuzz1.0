@@ -59,3 +59,5 @@ The `.github/workflows/test.yml` workflow:
 ## License
 
 MIT
+
+Test
